@@ -1,0 +1,45 @@
+package test;
+
+class Player{
+    String suits ;
+    String number ;
+    Player(String suits,String number){
+        this.number = number;
+        this.suits = suits ;
+    }
+}
+
+public class Shuffle {
+    public static void main(String[] args){
+        String[] suits = {"[方塊]","[紅心]","[方塊]","[梅花]"};
+        String[] number = {"1","2","3","4","5","6","7","8","9","10","J","Q","K"};
+        int[] arr = new int[5];
+        //int suitsRandom = (int) (Math.random()*4);
+        //int numRandom = (int) (Math.random()*13);
+        StringBuilder oneTo5 = new StringBuilder();
+        StringBuilder oneTo13 = new StringBuilder();
+        Player player1 = new Player("","");
+        Player player2 = new Player("","");
+        Player player3 = new Player("","");
+        Player player4 = new Player("","");              
+             
+            for(int i = 0; i < 13; i++){
+                int numRandom = (int) (Math.random()*13);
+                player1.number = number[numRandom];            
+                for(int j = 0; j < 5; j++){
+                    int suitsRandom = (int) (Math.random()*4);
+                    player1.suits = suits[suitsRandom];                    
+                }            
+                if(i != 12){
+                        oneTo13.append(player1.suits).append(player1.number).append(",").toString();
+                    }
+                else{
+                    oneTo13.append(player1.suits).append(player1.number).toString();
+                }
+            }
+        System.out.println("palyer1的牌:" + oneTo13);
+        //System.out.println("palyer2的牌:" + player2);
+        //System.out.println("palyer3的牌:" + player3);
+        //System.out.print("palyer4的牌:" + player4);
+    }
+}
